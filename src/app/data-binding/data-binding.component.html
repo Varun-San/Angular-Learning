@@ -1,0 +1,52 @@
+<p>data-binding works!</p>
+
+<div class="row">
+  <div class="col-6">
+    1. Interpolation
+    <p>welcome: {{ firstName }}</p>
+    <p>{{ rollno }}</p>
+  </div>
+
+  <div class="col-6">
+    2. Property Binding
+
+    <input type="" name="" [value]="firstName" [placeholder]="myPlaceHolder" />
+    <div
+      class="col-6"
+      style="height: 100px; width: 100px"
+      [class]="div1ClassName"
+    ></div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <button class="btn btn-primary" (click)="showWelcome()">Click me</button>
+    </div>
+    <div class="col-6">
+      <select class="select" (change)="onCityChange($event)">
+        <option value="pune">Pune</option>
+        <option value="lucknow">lucknow</option>
+        <option value="delhi">delhi</option>
+        <option value="chennai">chennai</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- Two Way Binding -->
+
+<div class="row">
+  <div class="col-4">
+    <input type="text" name="" id="" [(ngModel)]="firstName" />
+    <p>The First name is : {{ firstName }}</p>
+  </div>
+  <div class="col-3">
+    <select [(ngModel)]="selectedCity">
+      <option value="pune">Pune</option>
+      <option value="lucknow">lucknow</option>
+      <option value="delhi">delhi</option>
+      <option value="chennai">chennai</option>
+    </select>
+    = {{ selectedCity }}
+  </div>
+</div>

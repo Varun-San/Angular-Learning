@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+.shine-gradient {
+  background: linear-gradient(
+    90deg,
+    #0a37b3 20%,
+    #c07709 40%,
+    #c07709 60%,
+    #0a37b3 80%
+  );
+  background-clip: text;
+  background-size: 200% auto;
+  color: #405189;
+  /* text-fill-color: transparent; */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: shine 0s ease infinite;
+  animation: shine 4s ease infinite;
+}
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

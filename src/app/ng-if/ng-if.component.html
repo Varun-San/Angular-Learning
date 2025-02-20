@@ -1,0 +1,27 @@
+<p>ng-if works!</p>
+
+<div class="row w-100 text-center align-items-center">
+  <div class="col-3">
+    <div class="bg-success p-3" *ngIf="div1Visible">Div 1</div>
+  </div>
+  <div class="col-3">
+    @if( number1 == number2){
+    <div class="bg-primary p-3" *ngIf="number1 == number2">
+      Password's are same
+    </div>
+    } @else{
+    <div class="bg-danger p-3">Please Enter the Same Passwords</div>
+    }
+  </div>
+</div>
+
+<div class="row d-flex align-items-center">
+  <div class="col-3 pt-3 text-center">
+    <div class="btn btn-danger" (click)="hideDiv1()">Hide</div>
+    <div class="btn btn-success mx-3" (click)="showDiv1()">Show</div>
+  </div>
+  <div class="col-md-6">
+    <input type="text" [(ngModel)]="number1" />
+    <input type="text" [(ngModel)]="number2" />
+  </div>
+</div>

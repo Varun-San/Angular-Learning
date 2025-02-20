@@ -1,0 +1,145 @@
+<p>post-api works!</p>
+
+<div class="row">
+  <div class="col-8">
+    <h2>Post ApI Integration Using Template Form</h2>
+  </div>
+  <div class="col-4">
+    <button class="btn btn-success" (click)="getAllCars()">Load Cars</button>
+  </div>
+</div>
+
+<div class="row pt-2">
+  <div class="col-7">
+    <div class="card">
+      <div class="card-header bg-warning text-center text-bg-light">
+        <h5>CarList</h5>
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="text-center">Sr.NO</th>
+              <th class="text-center">Brand</th>
+              <th class="text-center">Model</th>
+              <th class="text-center">Reg No</th>
+              <th class="text-center">Daily Rate</th>
+              <th class="text-center">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of carDetails; track $index) {
+            <tr>
+              <td>{{ $index + 1 }}</td>
+              <td>{{ item.brand }}</td>
+              <td>{{ item.model }}</td>
+              <td>{{ item.regNo }}</td>
+              <td>{{ item.dailyRate }}</td>
+              <td class="d-flex justify-content-evenly">
+                <button class="btn btn-sm btn-dark" (click)="onEdit(item)">
+                  Edit
+                </button>
+                <button
+                  class="btn btn-sm btn-danger"
+                  (click)="onDelete(item.carId)"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-5">
+    <div class="card">
+      <div class="card-header bg-warning text-center text-bg-light">
+        <h5>Create New Car</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6 mt-2">
+            <label>Reg No</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="carObj.regNo"
+              placeholder="Enter car RegNo"
+            />
+          </div>
+          <div class="col-6 mt-2">
+            <label>Brand</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="carObj.brand"
+              placeholder="Enter Brand name"
+            />
+          </div>
+          <div class="col-6 mt-2">
+            <label>Model</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="carObj.model"
+              placeholder="Enter  model name"
+            />
+          </div>
+          <div class="col-6 mt-2">
+            <label>Year</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="carObj.year"
+              placeholder="Enter  Year"
+            />
+          </div>
+          <div class="col-6 mt-2">
+            <label>Color</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="carObj.color"
+              placeholder="Enter Color"
+            />
+          </div>
+          <div class="col-6 mt-2">
+            <label>Daily Rate</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="carObj.dailyRate"
+              placeholder="Enter Daily Rate"
+            />
+          </div>
+          <div class="col-6 mt-2">
+            <label>Car Image URL</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="carObj.carImage"
+              placeholder="Enter Car Image URL"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 mt-2 text-center">
+            <button class="btn btn-secondary mt-2 mx-3">Reset Form</button>
+            @if (carObj.carId == 0) {
+            <button class="btn btn-primary mt-2 mx-3" (click)="onSaveCar()">
+              Save Car
+            </button>
+            } @else {<button
+              class="btn btn-warning mt-2 mx-3"
+              (click)="onUpdateCar()"
+            >
+              Update Car</button
+            >}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

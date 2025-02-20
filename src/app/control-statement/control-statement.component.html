@@ -1,0 +1,89 @@
+<p>control-statement works!</p>
+
+<div class="row">
+  <div class="col-3">
+    @if (div1Visible == true) {
+    <div class="bg-success p-3">Div 1</div>
+    }
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-3">
+    @if (isChecked == true){
+    <div class="bg-primary p-3">Check Box is checked</div>
+    } @else {
+    <div class="bg-danger p-3">Check box is unchecked</div>
+    }
+  </div>
+  <div class="col-3">
+    @if (dayName == 'mon') { <span>Monday</span>} @else if (dayName == 'tue') {
+    <span>Tuesday</span>
+    } @else if (dayName == 'wed') {
+    <span>WednesDay</span>
+    } @else if (dayName == 'thu'){
+    <span>Thursday</span>
+    } @else if (dayName == 'fri') {
+    <span>Friday</span>
+    } @else if(dayName == 'sat'){
+    <span>Saturday</span>
+    }@else if (dayName == 'sun') {
+    <span>Sunday</span>
+    } @else if (dayName == '') {
+    <span>Enter the Proper day</span>
+    }
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-3 p-3">
+    <button class="btn btn-success mx-2" (click)="hideShowDiv1(true)">
+      Show
+    </button>
+    <button class="btn btn-danger mx-1" (click)="hideShowDiv1(false)">
+      Hide
+    </button>
+    <div class="col-3">
+      <input type="checkbox" name="" id="" [(ngModel)]="isChecked" />
+    </div>
+    <div class="col-3">
+      <input
+        type="text"
+        name=""
+        id=""
+        [(ngModel)]="dayName"
+        maxlength="3"
+        placeholder="Enter the Day starting"
+      />
+    </div>
+    <div class="col-3">
+      <ol type="A">
+        @for (item of cityList; track $index){
+        <li>{{ item }}</li>
+        }
+      </ol>
+    </div>
+    <div class="col-3">
+      <table class="table table-hover table-bordered table-danger">
+        <thead>
+          <tr>
+            <th>S No</th>
+            <th>Nmae</th>
+            <th>City</th>
+            <th>Mobile no</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of employeeArray; track $index) {
+          <tr>
+            <td>{{ $index+1 }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.city }}</td>
+            <td>{{ item.phno }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

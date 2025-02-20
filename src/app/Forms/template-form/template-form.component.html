@@ -1,0 +1,139 @@
+<p>template-form works!</p>
+
+<h1>User Forms</h1>
+
+<div class="container bg-dark-subtle p-3">
+  <form #form="ngForm" class="row g-3 needs-validation" novalidate>
+    <div class="col-md-4">
+      <label for="validationCustom01" class="form-label">First name</label>
+      <span class="text-danger"> *</span>
+      <input
+        type="text"
+        class="form-control"
+        id="validationCustom01"
+        required
+        [(ngModel)]="userObj.firstName"
+        name="firstName"
+        #fName="ngModel"
+      />
+      @if (fName.errors?.['required'] && fName.touched) {
+      <div class="text-danger">
+        <span>This is Required</span>
+      </div>
+      }
+    </div>
+    <div class="col-md-4">
+      <label for="validationCustom02" class="form-label">Last name</label>
+      <span class="text-danger"> *</span>
+      <input
+        type="text"
+        class="form-control"
+        id="validationCustom02"
+        required
+        [(ngModel)]="userObj.lastName"
+        name="lastName"
+        #lName="ngModel"
+        minlength="1"
+      />
+      <div class="text-danger">
+        <span *ngIf="lName.errors?.['required'] && lName.touched"
+          >This is Required</span
+        >
+        <span *ngIf="lName.errors?.['minlength'] && lName.touched"
+          >Mininum Characters 1</span
+        >
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label for="validationCustomUsername" class="form-label">Email</label>
+      <div class="input-group has-validation p-lg-5">
+        <span class="input-group-text" id="inputGroupPrepend">&#64;</span>
+        <input
+          type="text"
+          class="form-control"
+          id="validationCustomUsername"
+          aria-describedby="inputGroupPrepend"
+          required
+          [(ngModel)]="userObj.userName"
+          name="userName"
+          #Email="ngModel"
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+          "
+        />
+      </div>
+      <div class="text-danger">
+        <span *ngIf="Email.errors?.['required'] && Email.touched"
+          >This is Required</span
+        >
+        <!-- <span *ngIf="Email.errors?.['pattern'] && Email.touched"
+          >Enter Proper Email</span
+        > -->
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="validationCustom03" class="form-label">City</label>
+      <input
+        type="text"
+        class="form-control"
+        id="validationCustom03"
+        required
+        [(ngModel)]="userObj.city"
+        name="city"
+      />
+      <div class="invalid-feedback">Please provide a valid city.</div>
+    </div>
+    <div class="col-md-3">
+      <label for="validationCustom04" class="form-label">State</label>
+      <select
+        class="form-select"
+        id="validationCustom04"
+        [(ngModel)]="userObj.state"
+        name="state"
+        required
+      >
+        <option selected disabled value="">Choose...</option>
+        <option>...</option>
+      </select>
+      <div class="invalid-feedback">Please select a valid state.</div>
+    </div>
+    <div class="col-md-3">
+      <label for="validationCustom05" class="form-label">Zip</label>
+      <input
+        type="text"
+        class="form-control"
+        id="validationCustom05"
+        name="zipCode"
+        [(ngModel)]="userObj.zipCode"
+        required
+      />
+      <div class="invalid-feedback">Please provide a valid zip.</div>
+    </div>
+    <div class="col-12">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="invalidCheck"
+          name="isTermsAgree"
+          [(ngModel)]="userObj.isTermsAgree"
+          required
+        />
+        <label class="form-check-label" for="invalidCheck">
+          Agree to terms and conditions
+        </label>
+        <div class="invalid-feedback">You must agree before submitting.</div>
+      </div>
+    </div>
+    <div class="col-12">
+      <button
+        class="btn btn-primary"
+        
+        type="submit"
+        (click)="onSave()"
+      >
+        Submit form
+      </button>
+    </div>
+  </form>
+</div>

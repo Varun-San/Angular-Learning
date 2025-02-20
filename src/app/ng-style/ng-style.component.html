@@ -1,0 +1,32 @@
+<p>ng-style works!</p>
+
+<div class="row">
+  <div class="col-3 p-4" [ngStyle]="{ 'background-color': divBckColor,  }">
+    Div 1
+  </div>
+  <div
+    class="col-3 p-4"
+    [ngStyle]="{ 'background-color': isChecked == true ? 'teal' : 'pink' }"
+  >
+    div 2
+  </div>
+  <div class="col3" [ngStyle]="myCss">div3</div>
+  -
+</div>
+
+<div class="row w-75 pt-2 d-flex justify-content-center">
+  <div class="col-6">
+    <button
+      class="btn btn-success mx-4"
+      (click)="addDiv1Color('gdivBckColoren')"
+    >
+      Green
+    </button>
+    <button class="btn btn-danger mx-4" (click)="addDiv1Color('red')">
+      Red
+    </button>
+  </div>
+  <div class="col-3">
+    <input type="checkbox" [(ngModel)]="isChecked" />
+  </div>
+</div>
