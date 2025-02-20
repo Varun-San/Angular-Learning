@@ -1,0 +1,77 @@
+<p>customer works!</p>
+
+<div class="row">
+  <div class="col-8">
+    <div class="card">
+      <div class="card-header bg-warning">
+        <h4 class="text-center">Customer List</h4>
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-danger table-hover">
+          <thead>
+            <tr>
+              <th>Sr No</th>
+              <th>Name</th>
+              <th>City</th>
+              <th>Mobile</th>
+              <th>Email</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card">
+      <div class="card-header bg-warning">
+        <h4 class="text-center">New Customer Form</h4>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <label for="Name">Name</label>
+            <input
+              type="text"
+              [(ngModel)]="customerObj.customerName"
+              class="form-control"
+            />
+          </div>
+          <div class="col-6">
+            <label for="Name">City</label>
+            <input
+              type="text"
+              [(ngModel)]="customerObj.customerCity"
+              class="form-control"
+            />
+          </div>
+          <div class="col-6">
+            <label for="Name">Mobile No</label>
+            <input
+              type="text"
+              [(ngModel)]="customerObj.mobileNo"
+              class="form-control"
+            />
+          </div>
+          <div class="col-6">
+            <label for="Name">Email</label>
+            <input
+              type="text"
+              [(ngModel)]="customerObj.email"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <div class="row pt-2">
+          <div class="col-6 text-center">
+            <button class="btn btn-success">Success</button>
+          </div>
+          <div class="col-6 text-center">
+            <button class="btn btn-outline-secondary">Edit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

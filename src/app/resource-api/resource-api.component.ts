@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, resource } from '@angular/core';
 
 @Component({
   selector: 'app-resource-api',
@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   templateUrl: './resource-api.component.html',
   styleUrl: './resource-api.component.css',
 })
-export class ResourceApiComponent {}
-
+export class ResourceApiComponent {
+  // Promise
+  userList = resource({
+    loader: () => {
+      return fetch('https://jsonplaceholder.typicode.com/users')
+        .then((res) => res.json() as Promise<any[]>)
+        .catch((res) => res.json() as Promise<any[]>);
+    },
+  });
+  reload() {
+    this.userList.reload();
+  }
+}
