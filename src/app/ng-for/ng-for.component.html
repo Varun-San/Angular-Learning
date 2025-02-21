@@ -5,18 +5,20 @@
       <li *ngFor="let city of cityList">{{ city }}</li>
     </ul>
   </div>
-  <!-- <div class="col-10">
+  <div class="col-10">
     <button class="btn btn-secondary" *ngFor="let city of cityList">
       {{ city }}
     </button>
-  </div> -->
-  <!-- <div class="col-3">
+  </div>
+  <br />
+  <br />
+  <div class="col-3">
     <div *ngFor="let city of cityList">
       <span>{{ city }}</span>
     </div>
-  </div> -->
+  </div>
 </div>
-
+<br />
 <div class="row">
   <div class="col-3">
     <select name="" id="">
@@ -25,12 +27,21 @@
       </option>
     </select>
   </div>
+  <br />
+  <div class="row p-3 bg-dark-subtle">
+    <div class="col-6">
+      CourseName = {{ CourseName }}
+      <br />
+      upperCase => {{ CourseName | uppercase }}
+    </div>
+  </div>
+  <br />
   <div class="col-6">
     <table class="table table-hover table-bordered table-danger">
       <thead>
         <tr>
           <th>S No</th>
-          <th>Nmae</th>
+          <th>Name</th>
           <th>City</th>
           <th>Mobile no</th>
         </tr>
@@ -42,7 +53,7 @@
         >
           <td>{{ srno + 1 }}</td>
           <td>{{ employee.name }}</td>
-          <td>{{ employee.city }}</td>
+          <td>{{ employee.city | na }}</td>
           <td>{{ employee.phno }}</td>
         </tr>
       </tbody>

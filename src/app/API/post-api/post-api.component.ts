@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -9,12 +9,16 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './post-api.component.html',
   styleUrl: './post-api.component.css',
 })
-export class PostApiComponent {
+export class PostApiComponent implements OnInit {
   //Creating a get Api using Constructor
   // constructor(private http: HttpClient) {}
 
   //Creating a get Api using Injector
   http = inject(HttpClient);
+
+  ngOnInit(): void {
+    this.getAllCars();
+  }
 
   carDetails: any[] = [];
 
@@ -89,5 +93,8 @@ export class PostApiComponent {
             alert(result.message);
           }
         });
+  }
+  resetForm() {
+    this.carObj = '';
   }
 }

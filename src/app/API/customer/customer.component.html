@@ -18,7 +18,28 @@
               <th>Action</th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>
+            @for (item of customerArray; track $index) {
+            <tr>
+              <td>{{ $index + 1 }}</td>
+              <td>{{ item.customerName }}</td>
+              <td>{{ item.customerCity }}</td>
+              <td>{{ item.mobileNo }}</td>
+              <td>{{ item.email }}</td>
+              <td class="d-flex justify-content-evenly">
+                <button class="btn btn-sm btn-dark" (click)="onEdit(item)">
+                  Edit
+                </button>
+                <button
+                  class="btn btn-sm btn-danger"
+                  (click)="onDeleteCustomer(item.customerId)"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+            }
+          </tbody>
         </table>
       </div>
     </div>
@@ -64,11 +85,17 @@
           </div>
         </div>
         <div class="row pt-2">
-          <div class="col-6 text-center">
-            <button class="btn btn-success">Success</button>
-          </div>
-          <div class="col-6 text-center">
-            <button class="btn btn-outline-secondary">Edit</button>
+          <div class="col-12 text-center">
+            @if (customerObj.customerId == 0) {
+            <button class="btn btn-primary" (click)="onSaveCustomer()">
+              Save Car
+            </button>
+            } @else {<button
+              class="btn btn-warning"
+              (click)="onUpdateCustomer()"
+            >
+              Update Car</button
+            >}
           </div>
         </div>
       </div>
