@@ -44,6 +44,7 @@
           <th>Name</th>
           <th>City</th>
           <th>Mobile no</th>
+          <th>Attendance</th>
         </tr>
       </thead>
       <tbody>
@@ -55,6 +56,11 @@
           <td>{{ employee.name }}</td>
           <td>{{ employee.city | na }}</td>
           <td>{{ employee.phno }}</td>
+          <td>
+            <app-progress-bar
+              [progressValue]="employee.attendance"
+            ></app-progress-bar>
+          </td>
         </tr>
       </tbody>
     </table>

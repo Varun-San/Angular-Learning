@@ -3,14 +3,18 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CurstomerService } from '../../services/curstomer.service';
+import { ProgressBarComponent } from '../../Reusable/progress-bar/progress-bar.component';
+import { TabsComponent } from '../../Reusable/tabs/tabs.component';
 
 @Component({
   selector: 'app-customer',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, ProgressBarComponent, TabsComponent],
   templateUrl: './customer.component.html',
   styleUrl: './customer.component.css',
 })
 export class CustomerComponent {
+  customerTabs: string[] = ['Basic Info', 'Plan-Info', 'Payments'];
+
   customerObj: any = {
     customerId: 0,
     customerName: '',

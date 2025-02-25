@@ -6,8 +6,18 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-12 text-center">
+    <app-tabs
+      [tabList]="['Car List', 'New Car Form']"
+      (onTabClicked)="onTabChange($event)"
+    ></app-tabs>
+  </div>
+</div>
+
 <div class="row pt-2">
-  <div class="col-7">
+  @if (currentTab == 'Car List') {
+  <div class="col-12">
     <div class="card">
       <div class="card-header bg-warning text-center text-bg-light">
         <h5>CarList</h5>
@@ -50,7 +60,8 @@
       </div>
     </div>
   </div>
-  <div class="col-5">
+  } @else {
+  <div class="col-12">
     <div class="card">
       <div class="card-header bg-warning text-center text-bg-light">
         <h5>Create New Car</h5>
@@ -144,4 +155,5 @@
       </div>
     </div>
   </div>
+  }
 </div>
