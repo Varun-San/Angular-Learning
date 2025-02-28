@@ -1,8 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TabsComponent } from '../../Reusable/tabs/tabs.component';
+import { Car, ICarList } from '../../model/Car';
 
 @Component({
   selector: 'app-post-api',
@@ -17,27 +24,26 @@ export class PostApiComponent implements OnInit {
   //Creating a get Api using Injector
   currentTab: string = '';
 
+  @ViewChild(TabsComponent) myTabVc: TabsComponent | undefined;
+
   onTabChange(tabName: string) {
     this.currentTab = tabName;
   }
   http = inject(HttpClient);
 
+  @ViewChild('textCity') cityTxt: ElementRef | undefined;
+  readCity() {
+    const value = this.cityTxt?.nativeElement.value;
+    console.log(value);
+  }
+
   ngOnInit(): void {
     this.getAllCars();
   }
 
-  carDetails: any[] = [];
+  carDetails: ICarList[] = [];
 
-  carObj: any = {
-    carId: 0,
-    brand: '',
-    model: '',
-    year: '',
-    color: '',
-    dailyRate: '',
-    carImage: '',
-    regNo: '',
-  };
+  carObj: Car = new Car();
 
   getAllCars() {
     this.http
@@ -57,6 +63,7 @@ export class PostApiComponent implements OnInit {
         if (result.result) {
           alert('Car Created Successfully');
           this.getAllCars();
+          this.carObj = new Car();
         } else {
           alert(result.message);
         }
@@ -101,6 +108,6 @@ export class PostApiComponent implements OnInit {
         });
   }
   resetForm() {
-    this.carObj = '';
+    this.carObj = new Car();
   }
 }

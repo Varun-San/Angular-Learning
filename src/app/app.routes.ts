@@ -15,76 +15,97 @@ import { PostApiComponent } from './API/post-api/post-api.component';
 import { ResourceApiComponent } from './resource-api/resource-api.component';
 import { CustomerComponent } from './API/customer/customer.component';
 import { LifeCycleComponent } from './life-cycle/life-cycle.component';
+import { LoginComponent } from './login/login.component';
+import { LayoutComponent } from './layout/layout.component';
+import { authGuard } from './Guard/auth.guard';
+import { NgTempNgContainerComponent } from './ng-temp-ng-container/ng-temp-ng-container.component';
 
 export const routes: Routes = [
   {
+    //Default route
     path: '',
-    redirectTo: 'admin',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
-    path: 'admin',
-    component: AdminComponent,
+    //login Route
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path: 'dataBinding',
-    component: DataBindingComponent,
-  },
+    path: '',
+    component: LayoutComponent,
+    canActivate: [authGuard],
+    children: [
+      {
+        path: 'admin',
+        component: AdminComponent,
+      },
+      {
+        path: 'dataBinding',
+        component: DataBindingComponent,
+      },
 
-  {
-    path: 'ng-Class',
-    component: NgClassComponent,
-  },
-  {
-    path: 'ng-For',
-    component: NgForComponent,
-  },
-  {
-    path: 'ng-If',
-    component: NgIfComponent,
-  },
-  {
-    path: 'ng-Style',
-    component: NgStyleComponent,
-  },
-  {
-    path: 'controlstatement',
-    component: ControlStatementComponent,
-  },
-  {
-    path: 'signal',
-    component: SignalComponent,
-  },
-  {
-    path: 'linked-signal',
-    component: LinkedSignalComponent,
-  },
-  {
-    path: 'template-form',
-    component: TemplateFormComponent,
-  },
-  {
-    path: 'reactive-form',
-    component: ReactiveFormComponent,
-  },
-  {
-    path: 'get-api',
-    component: GetApiComponent,
-  },
-  {
-    path: 'post-api',
-    component: PostApiComponent,
-  },
-  {
-    path: 'resource-api',
-    component: ResourceApiComponent,
-  },
-  {
-    path: 'customer-api',
-    component: CustomerComponent,
-  },
-  {
-    path: 'lifecycle',
-    component: LifeCycleComponent,
+      {
+        path: 'ng-Class',
+        component: NgClassComponent,
+      },
+      {
+        path: 'ng-For',
+        component: NgForComponent,
+      },
+      {
+        path: 'ng-If',
+        component: NgIfComponent,
+      },
+      {
+        path: 'ng-Style',
+        component: NgStyleComponent,
+      },
+      {
+        path: 'controlstatement',
+        component: ControlStatementComponent,
+      },
+      {
+        path: 'signal',
+        component: SignalComponent,
+      },
+      {
+        path: 'linked-signal',
+        component: LinkedSignalComponent,
+      },
+      {
+        path: 'template-form',
+        component: TemplateFormComponent,
+      },
+      {
+        path: 'reactive-form',
+        component: ReactiveFormComponent,
+      },
+      {
+        path: 'get-api',
+        component: GetApiComponent,
+      },
+      {
+        path: 'post-api',
+        component: PostApiComponent,
+      },
+      {
+        path: 'resource-api',
+        component: ResourceApiComponent,
+      },
+      {
+        path: 'customer-api',
+        component: CustomerComponent,
+      },
+      {
+        path: 'lifecycle',
+        component: LifeCycleComponent,
+      },
+      {
+        path: 'ng-temp-container',
+        component: NgTempNgContainerComponent,
+      },
+    ],
   },
 ];

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { ProgressBarComponent } from "../Reusable/progress-bar/progress-bar.component";
+import { ProgressBarComponent } from '../Reusable/progress-bar/progress-bar.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin',
@@ -10,6 +11,15 @@ import { ProgressBarComponent } from "../Reusable/progress-bar/progress-bar.comp
 })
 export class AdminComponent {
   constructor(private router: Router) {}
+
+  http = inject(HttpClient);
+
+  getUsers() {
+    this.http
+      .get('https://projectapi.gerasim.in/api/UserApp/GetAllUsers')
+      .subscribe(() => {});
+  }
+
   navigateTo() {
     this.router.navigateByUrl('/ng-Class');
   }

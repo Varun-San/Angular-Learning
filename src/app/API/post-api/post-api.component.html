@@ -14,6 +14,8 @@
     ></app-tabs>
   </div>
 </div>
+<input type="text" placeholder="Enter the City" #textCity />
+<button (click)="readCity()">Read Value</button>
 
 <div class="row pt-2">
   @if (currentTab == 'Car List') {
@@ -138,10 +140,6 @@
               Reset Form
             </button>
             @if (carObj.carId == 0) {
-            <button class="btn btn-primary mt-2 mx-3" (click)="onSaveCar()">
-              Save Car
-            </button>
-            } @else if (carObj == "") {
             <button class="btn btn-primary mt-2 mx-3" (click)="onSaveCar()">
               Save Car
             </button>

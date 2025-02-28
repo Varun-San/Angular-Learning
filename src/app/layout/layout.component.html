@@ -1,0 +1,192 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-danger-subtle">
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            routerLink="admin"
+            routerLinkActive="active-link"
+            >Admin</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            [routerLink]="['dataBinding']"
+            routerLinkActive="active-link"
+            >DataBinding</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            [routerLink]="['ng-Class']"
+            routerLinkActive="active-link"
+            >Ng-Class</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            [routerLink]="['ng-For']"
+            routerLinkActive="active-link"
+            >Ng-For</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            [routerLink]="['ng-If']"
+            routerLinkActive="active-link"
+            >Ng-If</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            [routerLink]="['ng-Style']"
+            routerLinkActive="active-link"
+            >Ng-Style</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            [routerLink]="['signal']"
+            routerLinkActive="active-link"
+            >Signal</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            [routerLink]="['linked-signal']"
+            routerLinkActive="active-link"
+            >Linked-Signal</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            [routerLink]="['template-form']"
+            routerLinkActive="active-link"
+            >Template-Form</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            [routerLink]="['reactive-form']"
+            routerLinkActive="active-link"
+            >Reactive-Form</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            [routerLink]="['ng-temp-container']"
+            routerLinkActive="active-link"
+            >ng-temp-container</a
+          >
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            href="#"
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            >API Call</a
+          >
+          <ul class="dropdown-menu">
+            <li>
+              <a
+                href="#"
+                class="dropdown-item"
+                routerLink="get-api"
+                routerLinkActive="active-link"
+                >Get-Api</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="dropdown-item"
+                routerLink="post-api"
+                routerLinkActive="active-link"
+                >Post-api</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="dropdown-item"
+                routerLink="customer-api"
+                routerLinkActive="active-link"
+                >Customer-api</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            routerLink="resource-api"
+            routerLinkActive="active-link"
+            >Resoucre-API</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            [routerLink]="['lifecycle']"
+            routerLinkActive="active-link"
+            >Life Cycle Events</a
+          >
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-danger" type="submit">Search</button>
+      </form>
+      <button
+        class="btn btn-outline-danger ms-2"
+        type="button"
+        (click)="onLogOut()"
+      >
+        Logout
+      </button>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
