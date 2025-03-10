@@ -24,18 +24,18 @@ export const routes: Routes = [
   {
     //Default route
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'admin',
     pathMatch: 'full',
   },
-  {
-    //login Route
-    path: 'login',
-    component: LoginComponent,
-  },
+  // {
+  //   //login Route
+  //   path: 'admin',
+  //   component: AdminComponent,
+  // },
   {
     path: '',
     component: LayoutComponent,
-    canActivate: [authGuard],
+
     children: [
       {
         path: 'admin',
